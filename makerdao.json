@@ -1,0 +1,2767 @@
+{
+  "id": "f3552819-2d8c-49c1-a30a-ecaca4fac7c3",
+  "version": "0.1.0",
+  "name": "makerdao",
+  "contractsTemplateManager": {
+    "contracts": [
+      {
+        "id": "3ed4f514-c9ba-4863-9816-3e6534e57b96",
+        "name": "DAI",
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "chainId_",
+                "type": "uint256"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "src",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "guy",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "wad",
+                "type": "uint256"
+              }
+            ],
+            "name": "Approval",
+            "type": "event"
+          },
+          {
+            "anonymous": true,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "bytes4",
+                "name": "sig",
+                "type": "bytes4"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "bytes32",
+                "name": "arg1",
+                "type": "bytes32"
+              },
+              {
+                "indexed": true,
+                "internalType": "bytes32",
+                "name": "arg2",
+                "type": "bytes32"
+              },
+              {
+                "indexed": false,
+                "internalType": "bytes",
+                "name": "data",
+                "type": "bytes"
+              }
+            ],
+            "name": "LogNote",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "src",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "dst",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "wad",
+                "type": "uint256"
+              }
+            ],
+            "name": "Transfer",
+            "type": "event"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "DOMAIN_SEPARATOR",
+            "outputs": [
+              {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "PERMIT_TYPEHASH",
+            "outputs": [
+              {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "allowance",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "wad",
+                "type": "uint256"
+              }
+            ],
+            "name": "approve",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "balanceOf",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "wad",
+                "type": "uint256"
+              }
+            ],
+            "name": "burn",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "decimals",
+            "outputs": [
+              {
+                "internalType": "uint8",
+                "name": "",
+                "type": "uint8"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "guy",
+                "type": "address"
+              }
+            ],
+            "name": "deny",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "wad",
+                "type": "uint256"
+              }
+            ],
+            "name": "mint",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "src",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "dst",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "wad",
+                "type": "uint256"
+              }
+            ],
+            "name": "move",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "name",
+            "outputs": [
+              {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "nonces",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "holder",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "nonce",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "expiry",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "allowed",
+                "type": "bool"
+              },
+              {
+                "internalType": "uint8",
+                "name": "v",
+                "type": "uint8"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "r",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "s",
+                "type": "bytes32"
+              }
+            ],
+            "name": "permit",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "wad",
+                "type": "uint256"
+              }
+            ],
+            "name": "pull",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "wad",
+                "type": "uint256"
+              }
+            ],
+            "name": "push",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "guy",
+                "type": "address"
+              }
+            ],
+            "name": "rely",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "symbol",
+            "outputs": [
+              {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "totalSupply",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "dst",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "wad",
+                "type": "uint256"
+              }
+            ],
+            "name": "transfer",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "src",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "dst",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "wad",
+                "type": "uint256"
+              }
+            ],
+            "name": "transferFrom",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "version",
+            "outputs": [
+              {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "wards",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          }
+        ],
+        "bytecode": "",
+        "isOpen": true,
+        "viewSize": "sm"
+      },
+      {
+        "id": "ccef51c5-24d0-45e3-9389-616787cb9f8d",
+        "name": "GemJoin",
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "vat_",
+                "type": "address"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "ilk_",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "address",
+                "name": "gem_",
+                "type": "address"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+          },
+          {
+            "anonymous": true,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "bytes4",
+                "name": "sig",
+                "type": "bytes4"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "bytes32",
+                "name": "arg1",
+                "type": "bytes32"
+              },
+              {
+                "indexed": true,
+                "internalType": "bytes32",
+                "name": "arg2",
+                "type": "bytes32"
+              },
+              {
+                "indexed": false,
+                "internalType": "bytes",
+                "name": "data",
+                "type": "bytes"
+              }
+            ],
+            "name": "LogNote",
+            "type": "event"
+          },
+          {
+            "constant": false,
+            "inputs": [],
+            "name": "cage",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "dec",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              }
+            ],
+            "name": "deny",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "wad",
+                "type": "uint256"
+              }
+            ],
+            "name": "exit",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "gem",
+            "outputs": [
+              {
+                "internalType": "contract GemLike",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "ilk",
+            "outputs": [
+              {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "wad",
+                "type": "uint256"
+              }
+            ],
+            "name": "join",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "live",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              }
+            ],
+            "name": "rely",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "vat",
+            "outputs": [
+              {
+                "internalType": "contract VatLike",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "wards",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          }
+        ],
+        "bytecode": "",
+        "isOpen": true,
+        "viewSize": "md"
+      },
+      {
+        "id": "dc65bb70-0d1a-46e0-99bd-1297e78933a1",
+        "name": "GUniPool",
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "address payable",
+                "name": "_gelato",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+              }
+            ],
+            "name": "Approval",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "internalType": "address",
+                "name": "receiver",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "burnAmount",
+                "type": "uint256"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount0Out",
+                "type": "uint256"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount1Out",
+                "type": "uint256"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint128",
+                "name": "liquidityBurned",
+                "type": "uint128"
+              }
+            ],
+            "name": "Burned",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "feesEarned0",
+                "type": "uint256"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "feesEarned1",
+                "type": "uint256"
+              }
+            ],
+            "name": "FeesEarned",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "internalType": "address",
+                "name": "receiver",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "mintAmount",
+                "type": "uint256"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount0In",
+                "type": "uint256"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount1In",
+                "type": "uint256"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint128",
+                "name": "liquidityMinted",
+                "type": "uint128"
+              }
+            ],
+            "name": "Minted",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousManager",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newManager",
+                "type": "address"
+              }
+            ],
+            "name": "OwnershipTransferred",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "internalType": "int24",
+                "name": "lowerTick_",
+                "type": "int24"
+              },
+              {
+                "indexed": false,
+                "internalType": "int24",
+                "name": "upperTick_",
+                "type": "int24"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint128",
+                "name": "liquidityBefore",
+                "type": "uint128"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint128",
+                "name": "liquidityAfter",
+                "type": "uint128"
+              }
+            ],
+            "name": "Rebalance",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "internalType": "uint16",
+                "name": "managerFee",
+                "type": "uint16"
+              }
+            ],
+            "name": "SetManagerFee",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+              }
+            ],
+            "name": "Transfer",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "internalType": "address",
+                "name": "oldAdminTreasury",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "address",
+                "name": "newAdminTreasury",
+                "type": "address"
+              }
+            ],
+            "name": "UpdateAdminTreasury",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "internalType": "uint16",
+                "name": "gelatoRebalanceBPS",
+                "type": "uint16"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint16",
+                "name": "gelatoWithdrawBPS",
+                "type": "uint16"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint16",
+                "name": "gelatoSlippageBPS",
+                "type": "uint16"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint32",
+                "name": "gelatoSlippageInterval",
+                "type": "uint32"
+              }
+            ],
+            "name": "UpdateGelatoParams",
+            "type": "event"
+          },
+          {
+            "inputs": [],
+            "name": "GELATO",
+            "outputs": [
+              {
+                "internalType": "address payable",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+              }
+            ],
+            "name": "allowance",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+              }
+            ],
+            "name": "approve",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              }
+            ],
+            "name": "balanceOf",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "burnAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "receiver",
+                "type": "address"
+              }
+            ],
+            "name": "burn",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "amount0",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount1",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint128",
+                "name": "liquidityBurned",
+                "type": "uint128"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "decimals",
+            "outputs": [
+              {
+                "internalType": "uint8",
+                "name": "",
+                "type": "uint8"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "subtractedValue",
+                "type": "uint256"
+              }
+            ],
+            "name": "decreaseAllowance",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "int24",
+                "name": "newLowerTick",
+                "type": "int24"
+              },
+              {
+                "internalType": "int24",
+                "name": "newUpperTick",
+                "type": "int24"
+              },
+              {
+                "internalType": "uint160",
+                "name": "swapThresholdPrice",
+                "type": "uint160"
+              },
+              {
+                "internalType": "uint256",
+                "name": "swapAmountBPS",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "zeroForOne",
+                "type": "bool"
+              }
+            ],
+            "name": "executiveRebalance",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "gelatoBalance0",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "gelatoBalance1",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "gelatoFeeBPS",
+            "outputs": [
+              {
+                "internalType": "uint16",
+                "name": "",
+                "type": "uint16"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "gelatoRebalanceBPS",
+            "outputs": [
+              {
+                "internalType": "uint16",
+                "name": "",
+                "type": "uint16"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "gelatoSlippageBPS",
+            "outputs": [
+              {
+                "internalType": "uint16",
+                "name": "",
+                "type": "uint16"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "gelatoSlippageInterval",
+            "outputs": [
+              {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "gelatoWithdrawBPS",
+            "outputs": [
+              {
+                "internalType": "uint16",
+                "name": "",
+                "type": "uint16"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "amount0Max",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount1Max",
+                "type": "uint256"
+              }
+            ],
+            "name": "getMintAmounts",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "amount0",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount1",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "mintAmount",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "getPositionID",
+            "outputs": [
+              {
+                "internalType": "bytes32",
+                "name": "positionID",
+                "type": "bytes32"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "getUnderlyingBalances",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "amount0Current",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount1Current",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint160",
+                "name": "sqrtRatioX96",
+                "type": "uint160"
+              }
+            ],
+            "name": "getUnderlyingBalancesAtPrice",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "amount0Current",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount1Current",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "addedValue",
+                "type": "uint256"
+              }
+            ],
+            "name": "increaseAllowance",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "string",
+                "name": "_name",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "_symbol",
+                "type": "string"
+              },
+              {
+                "internalType": "address",
+                "name": "_pool",
+                "type": "address"
+              },
+              {
+                "internalType": "uint16",
+                "name": "_managerFeeBPS",
+                "type": "uint16"
+              },
+              {
+                "internalType": "int24",
+                "name": "_lowerTick",
+                "type": "int24"
+              },
+              {
+                "internalType": "int24",
+                "name": "_upperTick",
+                "type": "int24"
+              },
+              {
+                "internalType": "address",
+                "name": "_manager_",
+                "type": "address"
+              }
+            ],
+            "name": "initialize",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint16",
+                "name": "_managerFeeBPS",
+                "type": "uint16"
+              }
+            ],
+            "name": "initializeManagerFee",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "lowerTick",
+            "outputs": [
+              {
+                "internalType": "int24",
+                "name": "",
+                "type": "int24"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "manager",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "managerBalance0",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "managerBalance1",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "managerFeeBPS",
+            "outputs": [
+              {
+                "internalType": "uint16",
+                "name": "",
+                "type": "uint16"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "managerTreasury",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "mintAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "receiver",
+                "type": "address"
+              }
+            ],
+            "name": "mint",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "amount0",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount1",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint128",
+                "name": "liquidityMinted",
+                "type": "uint128"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "name",
+            "outputs": [
+              {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "pool",
+            "outputs": [
+              {
+                "internalType": "contract IUniswapV3Pool",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint160",
+                "name": "swapThresholdPrice",
+                "type": "uint160"
+              },
+              {
+                "internalType": "uint256",
+                "name": "swapAmountBPS",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "zeroForOne",
+                "type": "bool"
+              },
+              {
+                "internalType": "uint256",
+                "name": "feeAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "paymentToken",
+                "type": "address"
+              }
+            ],
+            "name": "rebalance",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "renounceOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "symbol",
+            "outputs": [
+              {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "token0",
+            "outputs": [
+              {
+                "internalType": "contract IERC20",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "token1",
+            "outputs": [
+              {
+                "internalType": "contract IERC20",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "totalSupply",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "recipient",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+              }
+            ],
+            "name": "transfer",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "sender",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "recipient",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+              }
+            ],
+            "name": "transferFrom",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+              }
+            ],
+            "name": "transferOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "amount0Owed",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount1Owed",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bytes",
+                "name": "",
+                "type": "bytes"
+              }
+            ],
+            "name": "uniswapV3MintCallback",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "int256",
+                "name": "amount0Delta",
+                "type": "int256"
+              },
+              {
+                "internalType": "int256",
+                "name": "amount1Delta",
+                "type": "int256"
+              },
+              {
+                "internalType": "bytes",
+                "name": "",
+                "type": "bytes"
+              }
+            ],
+            "name": "uniswapV3SwapCallback",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint16",
+                "name": "newRebalanceBPS",
+                "type": "uint16"
+              },
+              {
+                "internalType": "uint16",
+                "name": "newWithdrawBPS",
+                "type": "uint16"
+              },
+              {
+                "internalType": "uint16",
+                "name": "newSlippageBPS",
+                "type": "uint16"
+              },
+              {
+                "internalType": "uint32",
+                "name": "newSlippageInterval",
+                "type": "uint32"
+              },
+              {
+                "internalType": "address",
+                "name": "newTreasury",
+                "type": "address"
+              }
+            ],
+            "name": "updateGelatoParams",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "upperTick",
+            "outputs": [
+              {
+                "internalType": "int24",
+                "name": "",
+                "type": "int24"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "version",
+            "outputs": [
+              {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "feeAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "feeToken",
+                "type": "address"
+              }
+            ],
+            "name": "withdrawGelatoBalance",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "feeAmount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "address",
+                "name": "feeToken",
+                "type": "address"
+              }
+            ],
+            "name": "withdrawManagerBalance",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          }
+        ],
+        "bytecode": "",
+        "isOpen": true,
+        "viewSize": "sm"
+      },
+      {
+        "id": "73632734-cbfd-4115-b898-1f040b8570e1",
+        "name": "GemJoin5",
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "vat_",
+                "type": "address"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "ilk_",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "address",
+                "name": "gem_",
+                "type": "address"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+          },
+          {
+            "anonymous": true,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "bytes4",
+                "name": "sig",
+                "type": "bytes4"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "bytes32",
+                "name": "arg1",
+                "type": "bytes32"
+              },
+              {
+                "indexed": true,
+                "internalType": "bytes32",
+                "name": "arg2",
+                "type": "bytes32"
+              },
+              {
+                "indexed": false,
+                "internalType": "bytes",
+                "name": "data",
+                "type": "bytes"
+              }
+            ],
+            "name": "LogNote",
+            "type": "event"
+          },
+          {
+            "constant": false,
+            "inputs": [],
+            "name": "cage",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "dec",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              }
+            ],
+            "name": "deny",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "guy",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "wad",
+                "type": "uint256"
+              }
+            ],
+            "name": "exit",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "gem",
+            "outputs": [
+              {
+                "internalType": "contract GemLike5",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "ilk",
+            "outputs": [
+              {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "urn",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "wad",
+                "type": "uint256"
+              }
+            ],
+            "name": "join",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "live",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": false,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              }
+            ],
+            "name": "rely",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [],
+            "name": "vat",
+            "outputs": [
+              {
+                "internalType": "contract VatLike",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "constant": true,
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "wards",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+          }
+        ],
+        "bytecode": "",
+        "isOpen": true,
+        "viewSize": "sm"
+      },
+      {
+        "id": "568a9327-9923-499f-9113-0d7934e5fd5a",
+        "name": "CropJoin",
+        "abi": [
+          {
+            "inputs": [],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              }
+            ],
+            "name": "Deny",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              }
+            ],
+            "name": "Rely",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "SetImplementation",
+            "type": "event"
+          },
+          {
+            "stateMutability": "nonpayable",
+            "type": "fallback"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              }
+            ],
+            "name": "deny",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "implementation",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "live",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "usr",
+                "type": "address"
+              }
+            ],
+            "name": "rely",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "implementation_",
+                "type": "address"
+              }
+            ],
+            "name": "setImplementation",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "wards",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          }
+        ],
+        "bytecode": "",
+        "isOpen": true,
+        "viewSize": "sm"
+      }
+    ]
+  },
+  "routesTemplateManager": {
+    "routes": []
+  },
+  "docsTemplateManager": {
+    "docs": []
+  },
+  "scriptsTemplateManager": {
+    "scripts": []
+  },
+  "chainData": {
+    "1": {
+      "contractInstanceManager": {
+        "contracts": [
+          {
+            "id": "dfd86a71-879f-4231-92fd-c86f2d04f176",
+            "templateId": "3ed4f514-c9ba-4863-9816-3e6534e57b96",
+            "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "name": "DAI",
+            "functionsCache": {
+              "DOMAIN_SEPARATOR": {
+                "callResult": "0xdbb8cf42e1ecb028be3f3dbc922e1d878b963f411dc388ced501601c60f7c6f7"
+              },
+              "PERMIT_TYPEHASH": {
+                "callResult": "0xea2aa0a1be11a07ed86d755c93467f4f82362b452371d1ba94d1715123511acb"
+              },
+              "decimals": {
+                "callResult": "18"
+              },
+              "name": {
+                "callResult": "Dai Stablecoin"
+              },
+              "symbol": {
+                "callResult": "DAI"
+              },
+              "totalSupply": {
+                "callResult": "6376279649084797474512862352"
+              },
+              "version": {
+                "callResult": "1"
+              }
+            },
+            "tabIndex": 0,
+            "execHistory": [],
+            "show": true
+          },
+          {
+            "id": "3a16489e-a723-490e-b1ad-7f81fb2cb182",
+            "templateId": "ccef51c5-24d0-45e3-9389-616787cb9f8d",
+            "address": "0x2f0b23f53734252bda2277357e97e1517d6b042a",
+            "name": "Maker: ETH-A",
+            "functionsCache": {
+              "dec": {
+                "callResult": "18"
+              },
+              "gem": {
+                "callResult": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+              },
+              "ilk": {
+                "callResult": "0x4554482d41000000000000000000000000000000000000000000000000000000"
+              },
+              "live": {
+                "callResult": "1"
+              },
+              "vat": {
+                "callResult": "0x35D1b3F3D7966A1DFe207aa4514C12a259A0492B"
+              }
+            },
+            "tabIndex": 0,
+            "execHistory": [],
+            "show": true
+          },
+          {
+            "id": "accc08e6-5066-485d-9aa3-4a561427ae96",
+            "templateId": "ccef51c5-24d0-45e3-9389-616787cb9f8d",
+            "address": "0x08638eF1A205bE6762A8b935F5da9b700Cf7322c",
+            "name": "Maker: ETH-B",
+            "functionsCache": {
+              "dec": {
+                "callResult": "18"
+              },
+              "gem": {
+                "callResult": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+              },
+              "ilk": {
+                "callResult": "0x4554482d42000000000000000000000000000000000000000000000000000000"
+              },
+              "live": {
+                "callResult": "1"
+              },
+              "vat": {
+                "callResult": "0x35D1b3F3D7966A1DFe207aa4514C12a259A0492B"
+              }
+            },
+            "tabIndex": 0,
+            "execHistory": [],
+            "show": true
+          },
+          {
+            "id": "35b6c048-ba9c-49fa-ae14-44ec33055d2d",
+            "templateId": "ccef51c5-24d0-45e3-9389-616787cb9f8d",
+            "address": "0xF04a5cC80B1E94C69B48f5ee68a08CD2F09A7c3E",
+            "name": "Maker: ETH-C",
+            "functionsCache": {
+              "dec": {
+                "callResult": "18"
+              },
+              "gem": {
+                "callResult": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+              },
+              "ilk": {
+                "callResult": "0x4554482d43000000000000000000000000000000000000000000000000000000"
+              },
+              "live": {
+                "callResult": "1"
+              },
+              "vat": {
+                "callResult": "0x35D1b3F3D7966A1DFe207aa4514C12a259A0492B"
+              }
+            },
+            "tabIndex": 0,
+            "execHistory": [],
+            "show": true
+          },
+          {
+            "id": "5d037141-871a-40e9-9c37-7d6870fd92a4",
+            "templateId": "dc65bb70-0d1a-46e0-99bd-1297e78933a1",
+            "address": "0xAbDDAfB225e10B90D798bB8A886238Fb835e2053",
+            "name": "GUNIV3DAIUSDC1-A",
+            "functionsCache": {
+              "GELATO": {
+                "callResult": "0x3CACa7b48D0573D793d3b0279b5F0029180E83b6"
+              },
+              "decimals": {
+                "callResult": "18"
+              },
+              "gelatoBalance0": {
+                "callResult": "3062762773413905460510"
+              },
+              "gelatoBalance1": {
+                "callResult": "2904149950"
+              },
+              "gelatoFeeBPS": {
+                "callResult": "100"
+              },
+              "gelatoRebalanceBPS": {
+                "callResult": "150"
+              },
+              "gelatoSlippageBPS": {
+                "callResult": "500"
+              },
+              "gelatoSlippageInterval": {
+                "callResult": "300"
+              },
+              "gelatoWithdrawBPS": {
+                "callResult": "100"
+              },
+              "getPositionID": {
+                "callResult": "0x05edc47b5469cd2ae549b8ff43e491cb6a1c0994ded8018923a1fad4fea0393f"
+              },
+              "getUnderlyingBalances": {
+                "callResult": "302299379795578373091836971,106060598220020"
+              },
+              "lowerTick": {
+                "callResult": "-276330"
+              },
+              "manager": {
+                "callResult": "0x0000000000000000000000000000000000000000"
+              },
+              "managerBalance0": {
+                "callResult": "0"
+              },
+              "managerBalance1": {
+                "callResult": "0"
+              },
+              "managerFeeBPS": {
+                "callResult": "0"
+              },
+              "managerTreasury": {
+                "callResult": "0x0000000000000000000000000000000000000000"
+              },
+              "name": {
+                "callResult": "Gelato Uniswap DAI/USDC LP"
+              },
+              "pool": {
+                "callResult": "0x6c6Bc977E13Df9b0de53b251522280BB72383700"
+              },
+              "symbol": {
+                "callResult": "G-UNI"
+              },
+              "token0": {
+                "callResult": "0x6B175474E89094C44Da98b954EedeAC495271d0F"
+              },
+              "token1": {
+                "callResult": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+              },
+              "totalSupply": {
+                "callResult": "400126919615938953434470"
+              },
+              "upperTick": {
+                "callResult": "-276310"
+              },
+              "version": {
+                "callResult": "1.0.0"
+              }
+            },
+            "tabIndex": 0,
+            "execHistory": [],
+            "show": true
+          },
+          {
+            "id": "46d82f58-2b87-4c8a-ac5a-dec4d1834ba5",
+            "templateId": "dc65bb70-0d1a-46e0-99bd-1297e78933a1",
+            "address": "0x50379f632ca68D36E50cfBC8F78fe16bd1499d1e",
+            "name": "GUNIV3DAIUSDC2-A",
+            "functionsCache": {
+              "GELATO": {
+                "callResult": "0x3CACa7b48D0573D793d3b0279b5F0029180E83b6"
+              },
+              "decimals": {
+                "callResult": "18"
+              },
+              "gelatoBalance0": {
+                "callResult": "4218282415051130488359"
+              },
+              "gelatoBalance1": {
+                "callResult": "4377093019"
+              },
+              "gelatoFeeBPS": {
+                "callResult": "100"
+              },
+              "gelatoRebalanceBPS": {
+                "callResult": "200"
+              },
+              "gelatoSlippageBPS": {
+                "callResult": "500"
+              },
+              "gelatoSlippageInterval": {
+                "callResult": "300"
+              },
+              "gelatoWithdrawBPS": {
+                "callResult": "100"
+              },
+              "getPositionID": {
+                "callResult": "0xfde440200d6e116e87fbe0fc1ec51d36ec2add59fa2f8fef44436d04b5d92e99"
+              },
+              "getUnderlyingBalances": {
+                "callResult": "415343172393931280758416422,464579801480313"
+              },
+              "lowerTick": {
+                "callResult": "-276326"
+              },
+              "manager": {
+                "callResult": "0x0000000000000000000000000000000000000000"
+              },
+              "managerBalance0": {
+                "callResult": "0"
+              },
+              "managerBalance1": {
+                "callResult": "0"
+              },
+              "managerFeeBPS": {
+                "callResult": "0"
+              },
+              "managerTreasury": {
+                "callResult": "0x0000000000000000000000000000000000000000"
+              },
+              "name": {
+                "callResult": "Gelato Uniswap DAI/USDC LP"
+              },
+              "pool": {
+                "callResult": "0x5777d92f208679DB4b9778590Fa3CAB3aC9e2168"
+              },
+              "symbol": {
+                "callResult": "G-UNI"
+              },
+              "token0": {
+                "callResult": "0x6B175474E89094C44Da98b954EedeAC495271d0F"
+              },
+              "token1": {
+                "callResult": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+              },
+              "totalSupply": {
+                "callResult": "4350464154148108157827539"
+              },
+              "upperTick": {
+                "callResult": "-276322"
+              },
+              "version": {
+                "callResult": "1.0.0"
+              }
+            },
+            "tabIndex": 0,
+            "execHistory": [],
+            "show": true
+          },
+          {
+            "id": "4b6e1c14-c861-41ad-a3c8-da02bd9c6562",
+            "templateId": "73632734-cbfd-4115-b898-1f040b8570e1",
+            "address": "0xBF72Da2Bd84c5170618Fbe5914B0ECA9638d5eb5",
+            "name": "Maker: WBTC-A",
+            "functionsCache": {
+              "dec": {
+                "callResult": "8"
+              },
+              "gem": {
+                "callResult": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
+              },
+              "ilk": {
+                "callResult": "0x574254432d410000000000000000000000000000000000000000000000000000"
+              },
+              "live": {
+                "callResult": "1"
+              },
+              "vat": {
+                "callResult": "0x35D1b3F3D7966A1DFe207aa4514C12a259A0492B"
+              }
+            },
+            "tabIndex": 0,
+            "execHistory": [],
+            "show": true
+          },
+          {
+            "id": "e6ff88a1-78d0-41d7-a2fb-4f8f6dfcc01d",
+            "templateId": "73632734-cbfd-4115-b898-1f040b8570e1",
+            "address": "0xfA8c996e158B80D77FbD0082BB437556A65B96E0",
+            "name": "Maker: WBTC-B",
+            "functionsCache": {
+              "dec": {
+                "callResult": "8"
+              },
+              "gem": {
+                "callResult": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
+              },
+              "ilk": {
+                "callResult": "0x574254432d420000000000000000000000000000000000000000000000000000"
+              },
+              "live": {
+                "callResult": "1"
+              },
+              "vat": {
+                "callResult": "0x35D1b3F3D7966A1DFe207aa4514C12a259A0492B"
+              }
+            },
+            "tabIndex": 0,
+            "execHistory": [],
+            "show": true
+          },
+          {
+            "id": "a75ef554-5657-4104-90d7-51a17120c34a",
+            "templateId": "73632734-cbfd-4115-b898-1f040b8570e1",
+            "address": "0x7f62f9592b823331E012D3c5DdF2A7714CfB9de2",
+            "name": "Maker: WBTC-C",
+            "functionsCache": {
+              "dec": {
+                "callResult": "8"
+              },
+              "gem": {
+                "callResult": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
+              },
+              "ilk": {
+                "callResult": "0x574254432d430000000000000000000000000000000000000000000000000000"
+              },
+              "live": {
+                "callResult": "1"
+              },
+              "vat": {
+                "callResult": "0x35D1b3F3D7966A1DFe207aa4514C12a259A0492B"
+              }
+            },
+            "tabIndex": 0,
+            "execHistory": [],
+            "show": true
+          },
+          {
+            "id": "2b3a2adf-b719-47ad-8bdb-a578db44249f",
+            "templateId": "568a9327-9923-499f-9113-0d7934e5fd5a",
+            "address": "0x82D8bfDB61404C796385f251654F6d7e92092b5D",
+            "name": "CRVV1ETHSTETH-A",
+            "functionsCache": {
+              "implementation": {
+                "callResult": "0x6Eb33B161664EB5D1bB4B90ce7B35e2c57dF76bd"
+              },
+              "live": {
+                "callResult": "1"
+              }
+            },
+            "tabIndex": 0,
+            "execHistory": [],
+            "show": true
+          }
+        ]
+      }
+    },
+    "4689": {
+      "contractInstanceManager": {
+        "contracts": []
+      }
+    }
+  },
+  "createdAt": 1663292658998,
+  "url": "https://gist.githubusercontent.com/ququzone/ace4d956d19b47d0673f90003d932cea/raw",
+  "homepageUrl": "",
+  "logoUrl": "",
+  "description": {}
+}
